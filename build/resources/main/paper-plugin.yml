@@ -1,4 +1,0 @@
-name: BackupyFilipus
-version: '1.0-SNAPSHOT'
-main: filipus.backupyFilipus.BackupyFilipus
-api-version: '1.21'
