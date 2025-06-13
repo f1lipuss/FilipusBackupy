@@ -1,0 +1,4 @@
+name: BackupyFilipus
+version: '${version}'
+main: filipus.backupyFilipus.BackupyFilipus
+api-version: '1.21'
