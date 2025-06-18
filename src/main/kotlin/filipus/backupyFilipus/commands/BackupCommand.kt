@@ -11,23 +11,23 @@ import filipus.backupyFilipus.utils.openBackupGUI
 class BackupCommand(private val plugin: BackupyFilipus) : CommandExecutor {
     override fun onCommand(sender: CommandSender, command: Command, label: String, args: Array<out String>): Boolean {
         if (sender !is Player) {
-            sender.sendMessage("Komenda tylko dla graczy.")
+            sender.sendMessage(plugin.messages.get("only-player-command"))
             return true
         }
 
-        if (!sender.hasPermission("backupyfilipus.backup")) {
-            sender.sendMessage("Nie masz uprawnien do tej komendy | backupyfilipus.backup")
+        if (!sender.hasPermission("777Code.backup")) {
+            sender.sendMessage(plugin.messages.get("no-permission"))
             return true
         }
 
         if (args.isEmpty()) {
-            sender.sendMessage("Uzyj /backup <gracz>")
+            sender.sendMessage(plugin.messages.get("use-correct-command"))
             return true
         }
 
-        val targetPlayer = Bukkit.getPlayer(args[0])
+        val targetPlayer = Bukkit.getPlayerExact(args[0])
         if (targetPlayer == null) {
-            sender.sendMessage("Nie znaleziono gracza z taka nazwa")
+            sender.sendMessage(plugin.messages.get("player-not-found"))
             return true
         }
 
